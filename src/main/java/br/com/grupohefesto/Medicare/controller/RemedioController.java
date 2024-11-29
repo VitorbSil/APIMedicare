@@ -1,43 +1,44 @@
 package br.com.grupohefesto.Medicare.controller;
 
+import br.com.grupohefesto.Medicare.entity.Remedio;
 import br.com.grupohefesto.Medicare.entity.Utilizador;
-import br.com.grupohefesto.Medicare.service.UtilizadorService;
+import br.com.grupohefesto.Medicare.service.RemedioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/utilizador")
+@RequestMapping("/remedio")
 @RestController
-public class UtilizadorController
+public class RemedioController
 {
     @Autowired
-    private UtilizadorService service;
+    private RemedioService service;
 
     @GetMapping
-    public List<Utilizador> listar()
+    public List<Remedio> listar()
     {
         return service.listar();
     }
 
     @GetMapping("/{id")
-    public Utilizador buscarPorId(@PathVariable("id") int id)
+    public Remedio buscarPorId(@PathVariable("id") int id)
     {
         return service.buscarPorId(id);
     }
 
     @PostMapping
-    public Utilizador cadastrar(@RequestBody Utilizador utilizador)
+    public Remedio cadastrar(@RequestBody Remedio remedio)
     {
-        return service.cadastrar(utilizador);
+        return service.cadastrar(remedio);
     }
 
     @PutMapping("/{id}")
-    public Utilizador alterar (@RequestBody Utilizador utilizador,
+    public Remedio alterar (@RequestBody Remedio remedio,
                                @PathVariable ("id") int id)
     {
-        if (id == utilizador.getId())
-            return service.alterar(utilizador);
+        if (id == remedio.getId())
+            return service.alterar(remedio);
         else return null;
     }
 
@@ -46,6 +47,5 @@ public class UtilizadorController
     {
         service.excluir(id);
     }
-
 
 }

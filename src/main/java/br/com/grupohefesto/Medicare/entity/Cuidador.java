@@ -6,12 +6,11 @@ public class Cuidador
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCuidador")
+    @Column(name = "IDCUIDADOR")
     private int id;
 
-    @OneToMany
-    @JoinColumn(name = "idUtilizador")
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "IDUTILIZADOR")
     private Utilizador utilizador;
-
-
 }
