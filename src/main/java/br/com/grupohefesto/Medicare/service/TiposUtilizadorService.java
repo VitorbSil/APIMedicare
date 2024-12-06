@@ -23,6 +23,5 @@ public class TiposUtilizadorService
         var existe = repository.findById(id);
         if(existe.isPresent())
             return existe.get();
-        return null;
-    }
+        return null;}
 }
