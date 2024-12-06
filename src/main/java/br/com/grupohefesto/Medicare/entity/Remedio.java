@@ -20,6 +20,9 @@ public class Remedio
     @Column(name="NMREMEDIO")
     private String nome; //Nome mínimo de 3 caracteres
 
+    @Column(name="NTREMEDIO")
+    private String anotação; //Anotação de um Remédio: Para dor, gripe, etc.
+
     @Column(name="DOSAGEM")
     private int dosagem;
 
@@ -30,13 +33,10 @@ public class Remedio
     private LocalDateTime dtRegistroRemedio;
 
     @Column(name = "VLDREMEDIO")
-    private LocalDateTime vldRemedio; //Validade não pode ser menor que a data de hoje.
+    private LocalDateTime vldRemedio;
 
     @Column(name = "QTDREMEDIO")
     private int qtdRemedio; //Quantidade não pode ser 0.
-
-
-
 
 
     public int getId() {
@@ -53,6 +53,14 @@ public class Remedio
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getAnotação() {
+        return anotação;
+    }
+
+    public void setAnotação(String anotação) {
+        this.anotação = anotação;
     }
 
     public int getDosagem() {
